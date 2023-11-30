@@ -26,7 +26,7 @@ class MyFancySpider(CrawlSpider):
         item['nombre'] = response.css('.product-card__title::text').get()
         item['descripcion'] = response.css('.product-card__subtitle::text').get()
         item['precio'] = response.css('.product-price::text').get()
-        item['enlace'] = response.url  # Agrega el enlace a la información a extraer
+        item['enlace'] = response.url  
         
         # Puedes imprimir los resultados para verificar
         self.log(f'Item extraído: {item}')
@@ -46,5 +46,5 @@ class MyFancySpider(CrawlSpider):
         })
 
         # Guarda el DataFrame en un archivo Excel en el path proporcionado
-        ruta_archivo = r'C:\Users\Josu\Documents\ESCUELA\Python\neralcrawling\resultados_nike.xlsx'
+        ruta_archivo = r'C:\Users\Oscar Adame\source\repos\Crawler\CrawlerNike\neralcrawling\resultados_nike.xlsx'
         df.to_excel(ruta_archivo, index=False)
